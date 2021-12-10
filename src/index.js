@@ -2,6 +2,8 @@ const express = require("express");
 const puppeteer = require('puppeteer');
 const app = express();
 
+const PORT = process.env.PORT || 3000;
+
 (async function() {
   const browser = await puppeteer.launch({ args: ['--no-sandbox']  });
 
@@ -12,5 +14,5 @@ const app = express();
     res.send(html);
   });
 
-  app.listen(3000);
+  app.listen(PORT);
 }());
